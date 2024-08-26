@@ -60,4 +60,4 @@ The non-functional requirements specify the performance and operational criteria
 
 Below is the use case diagram that illustrates the primary interactions between the users and the system:
 
-![Use Case Diagram](/FlexJourney.svg)
+![Use Case Diagram](/UseCaseDiagram.svg)
