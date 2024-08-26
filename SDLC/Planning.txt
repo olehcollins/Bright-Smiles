@@ -18,6 +18,33 @@
         * Sprint Backlog:
         * Increment:
 
-3. Set Up Project Management Tools
+3. Project Management Tools for Agile Development
     3.1 Project Board:
         - Tool used is Azure DevOps: It creates a pipeline so that commits to the GitHub repo invoke a continuous integration build in Azure DevOps. Once that build is complete, it will invoke a continuous delivery deployment to push the bits out to Azure, creating the required resources, if necessary. Setup documentation (https://www.azuredevopslabs.com/labs/vstsextend/github-azurepipelines/)
+
+    3.2 High-level User Stories:
+        - Blogg App Version 1.0:
+            (a) As a blogger, I want to create an account, update it and delete it if no longer want it.
+            (b) As a blogger, I want to login, to access my personalised blog space and logout when I am done.
+            (c) As a blogger, I want to create and publish blog posts so that I can share my ideas with the world.
+            (d) As a blogger, I want to create, edit, and delete blog posts so that I can manage my content.
+            (e) As a user, I want user I want to use browse various posts without having to create an account.
+
+        - Blogg App Version 2.0:
+            * As a user, I want like and comment on blog posts that interest me.
+            * As a user, I want unlike and uncomment on blog posts.
+
+        - Blogg App Version 3.0:
+            * As a user, I want to get notifications when my favourite blogger posts a blog.
+            * As a user, I want to subscribe to my favourite bloggers so I can keep up to date with what they posts.
+            * As a user, I want to see my favourite blog posts first before others.
+            * As a user, I want to share blog posts that I find interesting.
+    
+4. Sprint Planning:
+    # Sprint 1 #
+    
+    Product Backlog:
+        * Implement an uathentication system for the platform.
+    - Day 1: Version 1.0 user story (a).
+        * Implement an uathentication for the platform.
+        * Implement the CRUD actions for the user account.
