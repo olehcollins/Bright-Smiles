@@ -1,0 +1,2 @@
+# FlexJourney
+Microservices Blogging Platform
