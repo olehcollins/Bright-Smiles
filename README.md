@@ -2,4 +2,4 @@
 
 # FlexJourney
 
-Microservices Blogging Platform
+Microservices Blogging Platform: A platform that allows users to register, create, edit, and manage blog posts, leave comments, and receive notifications.
