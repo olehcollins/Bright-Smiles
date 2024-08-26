@@ -13,7 +13,7 @@
 
 - **Scrum Team Roles**:
 
-  - **Product Owner**: Define and prioritize features (I will take on this role).
+  - **Product Owner**: Define and prioritise features (I will take on this role).
   - **Scrum Master**: Ensure the Scrum process is followed (I will also take on this role).
   - **Development Team**: Implement the features (I will take on this role).
 
@@ -35,7 +35,7 @@
 - **Blog App Version 1.0**:
 
   1. **As a blogger**, I want to create an account, update it, and delete it if I no longer want it.
-  2. **As a blogger**, I want to log in to access my personalized blog space and log out when I am done.
+  2. **As a blogger**, I want to log in to access my personalised blog space and log out when I am done.
   3. **As a blogger**, I want to create and publish blog posts so that I can share my ideas with the world.
   4. **As a blogger**, I want to create, edit, and delete blog posts so that I can manage my content.
   5. **As a user**, I want to browse various posts without having to create an account.
