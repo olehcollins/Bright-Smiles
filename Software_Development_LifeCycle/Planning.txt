@@ -39,12 +39,4 @@
             * As a user, I want to subscribe to my favourite bloggers so I can keep up to date with what they posts.
             * As a user, I want to see my favourite blog posts first before others.
             * As a user, I want to share blog posts that I find interesting.
-    
-4. Sprint Planning:
-    # Sprint 1 #
-    
-    Product Backlog:
-        * Implement an uathentication system for the platform.
-    - Day 1: Version 1.0 user story (a).
-        * Implement an uathentication for the platform.
-        * Implement the CRUD actions for the user account.
+
