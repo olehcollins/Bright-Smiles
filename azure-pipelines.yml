@@ -8,7 +8,7 @@ steps:
   - task: UseDotNet@2
     inputs:
       packageType: "sdk"
-      versionSpec: "7.x"
+      versionSpec: "8.x"
       installationPath: $(Agent.ToolsDirectory)/dotnet
 
   - script: dotnet restore DentistAppointmentSystem/DentistAppointmentSystem.csproj
@@ -23,7 +23,7 @@ steps:
   - task: Docker@2
     inputs:
       command: "build"
-      containerRegistry: "DockerHubConnection" # Ensure this name matches your service connection
+      containerRegistry: "DockerHubConnection"
       repository: "olehcollins/dentalpracticeproject"
       dockerfile: "**/Dockerfile"
       tags: "latest"
@@ -32,7 +32,7 @@ steps:
   - task: Docker@2
     inputs:
       command: "push"
-      containerRegistry: "DockerHubConnection" # Ensure this name matches your service connection
+      containerRegistry: "DockerHubConnection"
       repository: "olehcollins/dentalpracticeproject"
       tags: "latest"
     displayName: "Push Docker image to Docker Hub"
