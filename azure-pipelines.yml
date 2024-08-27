@@ -1,19 +1,26 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
-- main
+  branches:
+    include:
+      - main # Adjust if your default branch is named differently
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: "ubuntu-latest"
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+  - task: UseDotNet@2
+    inputs:
+      packageType: "sdk"
+      version: "7.x" # Use the latest version of the .NET SDK
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+  - script: |
+      docker build -t $(DockerRegistryServiceConnection)/dentalpracticeproject:$(Build.BuildId) .
+    displayName: "Build Docker Image"
+
+  - task: Docker@2
+    inputs:
+      command: "push"
+      containerRegistry: "$(DockerRegistryServiceConnection)"
+      repository: "dentalpracticeproject"
+      tags: |
+        $(Build.BuildId)
+    displayName: "Push Docker Image"
