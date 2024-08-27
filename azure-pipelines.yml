@@ -23,8 +23,8 @@ steps:
   - task: Docker@2
     inputs:
       command: "build"
-      containerRegistry: "DockerHubConnection"
-      repository: "olehcollins/dentistappointmentsystem"
+      containerRegistry: "DockerHubConnection" # Update this if you're using Docker Hub or another registry
+      repository: "olehcollins/dentalpracticeproject" # Ensure this matches your repository name
       dockerfile: "**/Dockerfile"
       tags: "latest"
     displayName: "Build Docker image"
@@ -32,8 +32,8 @@ steps:
   - task: Docker@2
     inputs:
       command: "push"
-      containerRegistry: "DockerHubConnection"
-      repository: "olehcollins/dentistappointmentsystem"
+      containerRegistry: "DockerHubConnection" # Update this if you're using Docker Hub or another registry
+      repository: "olehcollins/dentalpracticeproject" # Ensure this matches your repository name
       tags: "latest"
     displayName: "Push Docker image to Docker Hub"
 # Optionally, you can add deployment steps if you deploy your container somewhere.
