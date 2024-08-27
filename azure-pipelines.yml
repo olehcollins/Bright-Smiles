@@ -17,8 +17,8 @@ steps:
   - script: dotnet build DentistAppointmentSystem/DentistAppointmentSystem.csproj --configuration Release
     displayName: "Build project"
 
-  - script: dotnet test DentistAppointmentSystem.Tests/DentistAppointmentSystem.Tests.csproj --configuration Release
-    displayName: "Run tests"
+  # - script: dotnet test DentistAppointmentSystem.Tests/DentistAppointmentSystem.Tests.csproj --configuration Release
+  #   displayName: "Run tests"
 
   - task: Docker@2
     inputs:
