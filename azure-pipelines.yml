@@ -13,14 +13,18 @@ steps:
       version: "7.x" # Use the latest version of the .NET SDK
 
   - script: |
-      docker build -t dentalpracticeproject:$(Build.BuildId) .
+      docker build -t olehcollins/dentalpracticeproject:$(Build.BuildId) .
     displayName: "Build Docker Image"
+
+  - script: |
+      docker images
+    displayName: "List Docker Images"
 
   - task: Docker@2
     inputs:
       command: "push"
       containerRegistry: "DockerHubServiceConnection" # Name of the service connection
-      repository: "your-dockerhub-username/dentalpracticeproject" # DockerHub repository name
+      repository: "olehcollins/dentalpracticeproject" # DockerHub repository name
       tags: |
         $(Build.BuildId)
     displayName: "Push Docker Image"
