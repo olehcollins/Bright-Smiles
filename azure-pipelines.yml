@@ -8,7 +8,7 @@ steps:
   - task: UseDotNet@2
     inputs:
       packageType: "sdk"
-      versionSpec: "8.x"
+      versionSpec: "7.x"
       installationPath: $(Agent.ToolsDirectory)/dotnet
 
   - script: dotnet restore DentistAppointmentSystem/DentistAppointmentSystem.csproj
@@ -23,8 +23,8 @@ steps:
   - task: Docker@2
     inputs:
       command: "build"
-      containerRegistry: "DockerHubConnection" # Update this if you're using Docker Hub or another registry
-      repository: "olehcollins/dentalpracticeproject" # Ensure this matches your repository name
+      containerRegistry: "DockerHubConnection" # Ensure this name matches your service connection
+      repository: "olehcollins/dentalpracticeproject"
       dockerfile: "**/Dockerfile"
       tags: "latest"
     displayName: "Build Docker image"
@@ -32,24 +32,7 @@ steps:
   - task: Docker@2
     inputs:
       command: "push"
-      containerRegistry: "DockerHubConnection" # Update this if you're using Docker Hub or another registry
-      repository: "olehcollins/dentalpracticeproject" # Ensure this matches your repository name
+      containerRegistry: "DockerHubConnection" # Ensure this name matches your service connection
+      repository: "olehcollins/dentalpracticeproject"
       tags: "latest"
     displayName: "Push Docker image to Docker Hub"
-# Optionally, you can add deployment steps if you deploy your container somewhere.
-# Here's an example of deploying to an Azure Web App for Containers.
-
-# - task: AzureWebApp@1
-#   inputs:
-#     azureSubscription: 'YourAzureSubscription'
-#     appName: 'YourWebAppName'
-#     containers: |
-#       [
-#         {
-#           "name": "my-container",
-#           "image": "olehcollins/dentistappointmentsystem:latest",
-#           "cpu": "1",
-#           "memory": "1.5"
-#         }
-#       ]
-#   displayName: 'Deploy to Azure Web App'
