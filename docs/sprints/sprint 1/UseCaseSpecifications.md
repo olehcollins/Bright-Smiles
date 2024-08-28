@@ -10,8 +10,8 @@
 
   1.  The use case begins when the user selects Sign In The system requests the Username/Password.
   2.  The user enters username and password.
-  3.  The system checks to see if the username relates to an admin account.
-  4.  The system verifies the username/password.
+  3.  The system verifies the username/password.
+  4.  The system checks to see if the username relates to an admin account.
   5.  If the username/password are correct the system authorises the login
   6.  The system allows access to the correct functions for the user.
   7.  The use case ends when the user is logged in
@@ -39,3 +39,7 @@
   - The user is granted access to the appropriate functions and features based on their role (e.g., admin or regular user).
   - An authentication session is created for the user.
   - Failed login attempts (if any) are recorded for security and monitoring purposes.
+
+## 4. Activity Diagram
+
+![Activity Diagram](./ActivityDiagram.svg)
