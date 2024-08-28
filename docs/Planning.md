@@ -37,7 +37,8 @@
   1. **As a dentist**, I want to view my scheduled appointments and patient records so that I can manage my daily schedule and provide care.
   2. **As a receptionist**, I want to make and amend appointments, and register new patients, so that the appointment scheduling and patient onboarding processes are efficient.
   3. **As a practice manager**, I want to add new staff members and manage their roles and permissions to ensure smooth operation of the practice.
-  4. **As a patient**, I want to book, reschedule, or cancel my appointments online so that I can easily manage my dental visits without needing to call the practice.
+  4. **As a patient**, I want to see what dental services are offered by the practice.
+  5. **As a patient**, I want to book a dental appointment for specific service.
 
 - **Dentist Appointment System Version 2.0**:
 
