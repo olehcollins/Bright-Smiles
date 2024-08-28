@@ -1,6 +1,4 @@
-# Use Case Specification
-
-## Use Case: Login
+# Use Case: Login
 
 - **Actors:** User (account holder)
 - **Preconditions:**
@@ -8,7 +6,7 @@
   - The user has an account on the dental platform.
   - The user has can access the website via the internet.
 
-- **Main Flow:**
+- ## Main Flow:##
 
   1.  The use case begins when the user selects Sign In The system requests the Username/Password.
   2.  The user enters username and password.
@@ -18,7 +16,7 @@
   6.  The system allows access to the correct functions for the user.
   7.  The use case ends when the user is logged in
 
-- **Alternate** Flows:
+- ## Alternate## Flows:
 
   - **Invalid Username/Password**:
     - If the username or password entered by the user is incorrect, the system displays an error message indicating invalid credentials.
@@ -36,7 +34,7 @@
     - If a system error occurs (e.g., the server is down, or there is a network issue), the system displays an error message indicating the problem.
     - The use case ends, and the user is unable to log in until the issue is resolved.
 
-- **Post Conditions:**
+- ## Post Conditions:##
   - The user is successfully logged into the dental platform.
   - The user is granted access to the appropriate functions and features based on their role (e.g., admin or regular user).
   - An authentication session is created for the user.
