@@ -21,20 +21,20 @@
 - **Alternate** Flows:
 
   - **Invalid Username/Password**:
-    • If the username or password entered by the user is incorrect, the system displays an error message indicating invalid credentials.
-    • The user is prompted to re-enter their username and password.
-    • The use case returns to step 2 of the main flow.
+    - If the username or password entered by the user is incorrect, the system displays an error message indicating invalid credentials.
+    - The user is prompted to re-enter their username and password.
+    - The use case returns to step 2 of the main flow.
   - **Account Locked**:
-    • If there have been too many consecutive failed login attempts, the system locks the user’s account for security reasons.
-    • The system displays a message indicating the account is locked and provides instructions for unlocking it, such as contacting customer support or following a password recovery process.
-    • The use case ends.
+    - If there have been too many consecutive failed login attempts, the system locks the user’s account for security reasons.
+    - The system displays a message indicating the account is locked and provides instructions for unlocking it, such as contacting customer support or following a password recovery process.
+    - The use case ends.
   - **Admin Login**:
-    • If the system identifies the username as related to an admin account, the system authorises the login with additional security checks (such as two-factor authentication).
-    • If the additional security checks fail, the system returns an error message and does not authorise the login.
-    • If successful, the admin is granted access to admin-specific functions.
+    - If the system identifies the username as related to an admin account, the system authorises the login with additional security checks (such as two-factor authentication).
+    - If the additional security checks fail, the system returns an error message and does not authorise the login.
+    - If successful, the admin is granted access to admin-specific functions.
   - **System Error**:
-    • If a system error occurs (e.g., the server is down, or there is a network issue), the system displays an error message indicating the problem.
-    • The use case ends, and the user is unable to log in until the issue is resolved.
+    - If a system error occurs (e.g., the server is down, or there is a network issue), the system displays an error message indicating the problem.
+    - The use case ends, and the user is unable to log in until the issue is resolved.
 
 - **Post Conditions:**
   - The user is successfully logged into the dental platform.
