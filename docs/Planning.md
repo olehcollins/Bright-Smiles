@@ -39,6 +39,7 @@
   3. **As a practice manager**, I want to add new staff members and manage their roles and permissions to ensure smooth operation of the practice.
   4. **As a patient**, I want to see what dental services are offered by the practice.
   5. **As a patient**, I want to book a dental appointment for specific service.
+  6. **As a User**, I want to sign in and sign out of my account.
 
 - **Dentist Appointment System Version 2.0**:
 
