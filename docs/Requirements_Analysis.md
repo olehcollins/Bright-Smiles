@@ -57,4 +57,4 @@ The non-functional requirements define the performance, security, and operationa
 
 Below is the use case diagram that illustrates the primary interactions between the users and the system:
 
-![Use Case Diagram](/docs/UseCaseDiagram.png)
+![Use Case Diagram](/docs/UseCaseDiagram.svg)

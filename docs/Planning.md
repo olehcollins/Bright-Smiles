@@ -38,8 +38,7 @@
   2. **As a receptionist**, I want to make and amend appointments, and register new patients, so that the appointment scheduling and patient onboarding processes are efficient.
   3. **As a practice manager**, I want to add new staff members and manage their roles and permissions to ensure smooth operation of the practice.
   4. **As a patient**, I want to see what dental services are offered by the practice.
-  5. **As a patient**, I want to book a dental appointment for specific service.
-  6. **As a User**, I want to sign in and sign out of my account.
+  5. **As a User**, I want to sign in and sign out of my account.
 
 - **Dentist Appointment System Version 2.0**:
 
@@ -51,4 +50,3 @@
 
   1. **As a practice manager**, I want to implement notifications for staff about upcoming changes in roles or schedule modifications.
   2. **As a receptionist**, I want to have an improved interface for managing appointment conflicts and patient follow-ups.
-  3. **As a patient**, I want to update my personal information and view my appointment history online for better management of my dental care.
