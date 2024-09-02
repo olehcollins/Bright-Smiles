@@ -50,3 +50,4 @@
 
   1. **As a practice manager**, I want to implement notifications for staff about upcoming changes in roles or schedule modifications.
   2. **As a receptionist**, I want to have an improved interface for managing appointment conflicts and patient follow-ups.
+  3. **As a patient**, I want to update my personal information and view my appointment history online for better management of my dental care.
