@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/olehcollins/Documents - oleh’s Laptop/Programming/Software Projects/Dental-Practice-Project/DentistAppointmentSystem/DentistAppointmentSystem.csproj": {}
+    "/Users/olehcollins/Documents - oleh’s Laptop/Programming/Software Projects/AppointmentSystem/DentistAppointmentSystem/DentistAppointmentSystem.csproj": {}
   },
   "projects": {
-    "/Users/olehcollins/Documents - oleh’s Laptop/Programming/Software Projects/Dental-Practice-Project/DentistAppointmentSystem/DentistAppointmentSystem.csproj": {
+    "/Users/olehcollins/Documents - oleh’s Laptop/Programming/Software Projects/AppointmentSystem/DentistAppointmentSystem/DentistAppointmentSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/olehcollins/Documents - oleh’s Laptop/Programming/Software Projects/Dental-Practice-Project/DentistAppointmentSystem/DentistAppointmentSystem.csproj",
+        "projectUniqueName": "/Users/olehcollins/Documents - oleh’s Laptop/Programming/Software Projects/AppointmentSystem/DentistAppointmentSystem/DentistAppointmentSystem.csproj",
         "projectName": "DentistAppointmentSystem",
-        "projectPath": "/Users/olehcollins/Documents - oleh’s Laptop/Programming/Software Projects/Dental-Practice-Project/DentistAppointmentSystem/DentistAppointmentSystem.csproj",
+        "projectPath": "/Users/olehcollins/Documents - oleh’s Laptop/Programming/Software Projects/AppointmentSystem/DentistAppointmentSystem/DentistAppointmentSystem.csproj",
         "packagesPath": "/Users/olehcollins/.nuget/packages/",
-        "outputPath": "/Users/olehcollins/Documents - oleh’s Laptop/Programming/Software Projects/Dental-Practice-Project/DentistAppointmentSystem/obj/",
+        "outputPath": "/Users/olehcollins/Documents - oleh’s Laptop/Programming/Software Projects/AppointmentSystem/DentistAppointmentSystem/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/olehcollins/.nuget/NuGet/NuGet.Config"
@@ -42,6 +42,44 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[8.0.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
