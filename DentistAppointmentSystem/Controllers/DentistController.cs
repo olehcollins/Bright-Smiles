@@ -23,17 +23,18 @@ namespace DentistAppointmentSystem.Controllers
             if (!roleExists)
             {
                 // Handle the case where the role doesn't exist
-                return View(new DentistViewModel { Dentists = Enumerable.Empty<ApplicationUser>() });
+                return View(new UsersViewModel { Users = Enumerable.Empty<ApplicationUser>() });
             }
 
             // Get users with the 'Dentist' role
             var role = await _roleManager.FindByNameAsync("Dentist");
-            var usersInRole = await _userManager.GetUsersInRoleAsync(role.Name);
+            Console.WriteLine(role);
+            var usersInRole = await _userManager.GetUsersInRoleAsync(role!.Name!);
 
             // Create the view model
-            var model = new DentistViewModel
+            var model = new UsersViewModel
             {
-                Dentists = usersInRole
+                Users = usersInRole
             };
 
             // Return the view with the view model

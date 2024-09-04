@@ -49,6 +49,12 @@ namespace DentistAppointmentSystem.Controllers
 
                 if (result.Succeeded)
                 {
+                    var user = await _userManager.FindByEmailAsync(model.Email);
+                    if (user != null)
+                    {
+                        // Set TempData for toastr notification
+                        TempData["Message"] = $"Welcome, {user.FirstName} {user.LastName}!";
+                    }
                     return RedirectToAction("Index", "Home"); // Redirect to home or another page after successful login
                 }
                 else
@@ -110,12 +116,13 @@ namespace DentistAppointmentSystem.Controllers
                     Email = model.Email,
                     FirstName = model.FirstName,
                     LastName = model.LastName,
-                    ProfilePhotoPath = profilePhotoPath // Store the file path in the database
+                    ProfilePhotoPath = profilePhotoPath ?? ""// Store the file path in the database
                 };
 
                 var result = await _userManager.CreateAsync(user, model.Password);
+                var roleResult = await _userManager.AddToRoleAsync(user, model.Role);
 
-                if (result.Succeeded)
+                if (result.Succeeded && roleResult.Succeeded)
                 {
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     return RedirectToAction("Index", "Home");

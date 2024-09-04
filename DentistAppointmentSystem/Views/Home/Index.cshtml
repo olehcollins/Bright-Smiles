@@ -3,7 +3,29 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <li><a href="/Dentist">Dentist</a></li>
+    <h1 class="display-4">Home Page</h1>    
+    <p class="lead">Welcome to our application! @ViewBag.FullName</p>
+</div>
+
+<div class="menu">
+    <div class="dentists">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Dentist" asp-action="Index">
+            <h3>Dentists</h3>
+        </a>
+    </div>
+    <div class="dentists">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Dentist" asp-action="Index">
+            <h3>Receptionist</h3>
+        </a>
+    </div>
+    <div class="dentists">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Dentist" asp-action="Index">
+            <h3>Patients</h3>
+        </a>
+    </div>
+    <div class="dentists">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Dentist" asp-action="Index">
+            <h3>Appointments</h3>
+        </a>
+    </div>
 </div>

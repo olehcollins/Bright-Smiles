@@ -1,4 +1,4 @@
-@model DentistAppointmentSystem.ViewModels.DentistViewModel
+@model DentistAppointmentSystem.ViewModels.UsersViewModel
 
 @{
     ViewData["Title"] = "Dentists";
@@ -13,16 +13,18 @@
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Email</th>
+                <th>Created At</th>
                 <th>Profile Photo</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var dentist in Model.Dentists)
+            @foreach (var dentist in Model.Users)
             {
                 <tr>
                     <td>@dentist.FirstName</td>
                     <td>@dentist.LastName</td>
                     <td>@dentist.Email</td>
+                    <td>@dentist.DateAdded.ToString("dd MMM yyyy, hh:mm tt")</td>
                     <td>
                         @if (!string.IsNullOrEmpty(dentist.ProfilePhotoPath))
                         {
@@ -30,7 +32,7 @@
                         }
                         else
                         {
-                            <img src="https://img.freepik.com/free-vector/mans-flat-style-face_90220-2938.jpg?t=st=1725278922~exp=1725282522~hmac=4f0da0f46b0e9f77f60f8373b4b1709c3d1f5a213b8474b72407118952cfec37&w=1380" alt="Profile Photo" style="width: 100px; height: auto;" />
+                            <img src="https://img.freepik.com/free-vector/mans-flat-style-face_90220-2938.jpg?t=st=1725278922~exp=1725282522~hmac=4f0da0f46b0e9f77f60f8373b4b1709c3d1f5a213b8474b72407118952cfec37&w=1380" alt="Profile Photo" style="width: 50px; height: auto;" />
                         }
                     </td>
                 </tr>
