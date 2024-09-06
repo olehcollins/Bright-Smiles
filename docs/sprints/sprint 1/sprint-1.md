@@ -28,11 +28,39 @@
 2. **Implement an authentication system for the platform.**
 
 - **Tasks:**
-  1. Set up a DB context using Microsoft Entity Framework Core for users.
-  1. Populate the database with 4 dentists, 2 receptionists, and a practice manager.
-  1. Set the accessibility restrictions for the users depending on their roles.
+  1. Create a Data Folder and in create an initailiser file to populate the DB and context file for dependecy injection.
+  2. Set up a DB context using Microsoft Entity Framework Core for users.
+  3. Create the Migration file and then apply the migration to the database.
+  ```bash
+    dotnet ef migrations add InitialCreate
+    dotnet ef database update
+  ```
+  4. Populate the database with 4 dentists, 2 receptionists, and a practice manager.
+  5. Set the accessibility restrictions for the users depending on their roles.
+  6. Create a ViewModels Folder and in it create models for the Login and Register views.
+  ```
+
+  ```
 
 3. **Write a Unit Tests for the authentication system.**
-   - **Tasks:**
-   1.
-   2.
+
+- **Tasks:**
+  1. Navigate to the solution folder and run the following command to create a new xUnit test project:
+  ```bash
+    dotnet new xunit -n DentistAppointmentSystem.Tests
+  ```
+  3. Navigate into the newly created test project folder and install the necessary NuGet Packages
+  ```bash
+    dotnet add package xunit
+    dotnet add package Moq
+    dotnet add package Microsoft.AspNetCore.Hosting
+    dotnet add package Microsoft.AspNetCore.Http
+  ```
+  4. Add a refrence to your project
+  ```bash
+    dotnet add reference ../DentistAppointmentSystem/DentistAppointmentSystem.csproj
+  ```
+  4. Create a Controller Folder and within it create an AccountControllerTests.cs file
+  5. Code write the unit test for the Account Controller Actions
+
+3. **Deploy the Application.**
