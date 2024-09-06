@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DentistAppointmentSystem", "DentistAppointmentSystem\DentistAppointmentSystem.csproj", "{2BA8324B-1923-4511-B3D7-06A4E82A50A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DentistAppointmentSystem", "DentistAppointmentSystem\DentistAppointmentSystem.csproj", "{21ADDAFE-9A9C-4A39-AFF6-D145311EB3E9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2BA8324B-1923-4511-B3D7-06A4E82A50A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2BA8324B-1923-4511-B3D7-06A4E82A50A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2BA8324B-1923-4511-B3D7-06A4E82A50A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2BA8324B-1923-4511-B3D7-06A4E82A50A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21ADDAFE-9A9C-4A39-AFF6-D145311EB3E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21ADDAFE-9A9C-4A39-AFF6-D145311EB3E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21ADDAFE-9A9C-4A39-AFF6-D145311EB3E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21ADDAFE-9A9C-4A39-AFF6-D145311EB3E9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
