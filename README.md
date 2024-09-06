@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/Althaus-Digital-DentalPractice-Platform/Bright%20Smiles/_apis/build/status%2Folehcollins.Bright-Smiles?branchName=main)](https://dev.azure.com/Althaus-Digital-DentalPractice-Platform/Bright%20Smiles/_build/latest?definitionId=2&branchName=main)
+
 # Dental Practice Appointment System
 
 This is a .NET MVC web application for managing appointments in a dental practice. The system allows patients, doctors, receptionists, and administrators to perform different actions related to appointments and user management.
