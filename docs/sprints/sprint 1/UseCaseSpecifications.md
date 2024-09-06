@@ -40,6 +40,6 @@
   - An authentication session is created for the user.
   - Failed login attempts (if any) are recorded for security and monitoring purposes.
 
-<!-- ## 4. Activity Diagram
+## 4. Activity Diagram
 
-![Activity Diagram](./ActivityDiagram.svg) -->
+![Activity Diagram](./ActivityDiagram.svg)

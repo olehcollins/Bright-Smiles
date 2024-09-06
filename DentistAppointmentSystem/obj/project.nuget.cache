@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vDaRe4lfdtY=",
+  "dgSpecHash": "YGYbSuaopiw=",
   "success": true,
-  "projectFilePath": "/Users/olehcollins/Documents - oleh’s Laptop/Programming/Software Projects/AppointmentSystem/DentistAppointmentSystem/DentistAppointmentSystem.csproj",
+  "projectFilePath": "/Users/olehcollins/Documents - oleh’s Laptop/Programming/Bright-Smiles/DentistAppointmentSystem/DentistAppointmentSystem.csproj",
   "expectedPackageFiles": [
     "/Users/olehcollins/.nuget/packages/azure.core/1.35.0/azure.core.1.35.0.nupkg.sha512",
     "/Users/olehcollins/.nuget/packages/azure.identity/1.10.3/azure.identity.1.10.3.nupkg.sha512",
