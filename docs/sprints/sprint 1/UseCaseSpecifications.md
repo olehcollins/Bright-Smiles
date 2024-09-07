@@ -39,7 +39,3 @@
   - The user is granted access to the appropriate functions and features based on their role (e.g., admin or regular user).
   - An authentication session is created for the user.
   - Failed login attempts (if any) are recorded for security and monitoring purposes.
-
-<!-- ## 4. Activity Diagram
-
-![Activity Diagram](./ActivityDiagram.svg) -->
