@@ -17,14 +17,5 @@ namespace DentistAppointmentSystem.ViewModels
 
         [Required]
         public string Role { get; set; } = string.Empty;
-
-        [Required]
-        [DataType(DataType.Password)]
-        public string Password { get; set; } = string.Empty;
-
-        [DataType(DataType.Password)]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
-        public string ConfirmPassword { get; set; } = string.Empty;
-        public IFormFile ProfilePhoto { get; set; }  // New property for file upload
     }
 }

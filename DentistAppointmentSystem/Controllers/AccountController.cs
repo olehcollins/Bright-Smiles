@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using DentistAppointmentSystem.Data;
 using DentistAppointmentSystem.Models;
 using DentistAppointmentSystem.ViewModels;
+using DentistAppointmentSystem.Utilities;
 using System.Threading.Tasks;
 using System.IO;
 
@@ -24,7 +25,7 @@ namespace DentistAppointmentSystem.Controllers
             _webHostEnvironment = webHostEnvironment; // Inject IWebHostEnvironment to get the web root path
         }
 
-            // REGISTER
+        // REGISTER
 
         // GET: /Account/Login
         [HttpGet]
@@ -41,9 +42,9 @@ namespace DentistAppointmentSystem.Controllers
             if (ModelState.IsValid)
             {
                 var result = await _signInManager.PasswordSignInAsync(
-                    model.Email, 
-                    model.Password, 
-                    model.RememberMe, 
+                    model.Email,
+                    model.Password,
+                    model.RememberMe,
                     lockoutOnFailure: false
                 );
 
@@ -76,7 +77,7 @@ namespace DentistAppointmentSystem.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-            // REGISTER
+        // REGISTER
 
         [HttpGet]
         public IActionResult Register()
@@ -90,36 +91,16 @@ namespace DentistAppointmentSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Save the profile photo to the server
-                string? profilePhotoPath = null;
-                if (model.ProfilePhoto != null)
-                {
-                    // Set the folder path where the files will be stored
-                    string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "uploads");
-                    Directory.CreateDirectory(uploadsFolder); // Ensure the folder exists
-
-                    // Create a unique file name for the uploaded file
-                    string uniqueFileName = Guid.NewGuid().ToString() + "_" + model.ProfilePhoto.FileName;
-                    profilePhotoPath = Path.Combine(uploadsFolder, uniqueFileName);
-
-                    // Save the file to the server
-                    using (var fileStream = new FileStream(profilePhotoPath, FileMode.Create))
-                    {
-                        await model.ProfilePhoto.CopyToAsync(fileStream);
-                    }
-                }
-
                 // Create a new user with the provided details
                 var user = new ApplicationUser
                 {
-                    UserName = model.Email,
+                    UserName = UsernameGenerator.GenerateUsername(model.FirstName, model.LastName),
                     Email = model.Email,
                     FirstName = model.FirstName,
                     LastName = model.LastName,
-                    ProfilePhotoPath = profilePhotoPath ?? ""// Store the file path in the database
                 };
 
-                var result = await _userManager.CreateAsync(user, model.Password);
+                var result = await _userManager.CreateAsync(user, PasswordGenerator.GeneratePassword(model.FirstName, model.LastName));
                 var roleResult = await _userManager.AddToRoleAsync(user, model.Role);
 
                 if (result.Succeeded && roleResult.Succeeded)
