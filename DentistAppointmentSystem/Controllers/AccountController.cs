@@ -117,5 +117,6 @@ namespace DentistAppointmentSystem.Controllers
 
             return View(model);
         }
+
     }
 }

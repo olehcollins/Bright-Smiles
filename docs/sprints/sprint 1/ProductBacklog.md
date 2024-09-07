@@ -23,7 +23,6 @@
   3. Create a User Model.
   4. Configure the Database Connection.
   5. Configure Services and Middleware in Program.cs.
-  6. Populate the database.
 
 2. **Implement an authentication system for the platform.**
 
@@ -31,20 +30,32 @@
 
   1. Create a Data Folder and in create an initailiser file to populate the DB and context file for dependecy injection.
   2. Set up a DB context using Microsoft Entity Framework Core for users.
-  3. Create the Migration file and then apply the migration to the database.
+  3. Create a DB initialiser file and write code to populate the database with 4 dentists, 2 receptionists, and a practice manager.
+  4. Set the accessibility restrictions for the users depending on their roles.
+  5. Leverage Entity Framework Cores capability to create a drop any existing database and create a new one.
 
-  ```bash
-    dotnet ef migrations add InitialCreate
-    dotnet ef database update
+  ```csharp
+    // Seed the database with initial data
+    using (var scope = app.Services.CreateScope())
+    {
+        var services = scope.ServiceProvider;
+        var context = services.GetRequiredService<ApplicationDbContext>();
+
+        // drop existing database
+        context.Database.EnsureDeleted();
+
+        // create new database
+        context.Database.EnsureCreated();
+
+        var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
+        var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+        await DbInitialiser.Initialise(context, userManager, roleManager);
+    }
   ```
 
-  4. Populate the database with 4 dentists, 2 receptionists, and a practice manager.
-  5. Set the accessibility restrictions for the users depending on their roles.
   6. Create a ViewModels Folder and in it create models for the Login and Register views.
-
-  ```
-
-  ```
+  7. In the Controllers folder create a 'AccountController.cs' file and write the code for the Login and Register actions.
+  8. In the Views Folder create a 'Account' Folder and in it a Login and Register View.
 
 3. **Write a Unit Tests for the authentication system.**
 

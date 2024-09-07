@@ -61,13 +61,22 @@ app.MapRazorPages();
 app.Run();
 
 
-// Seed the database with initial data
+// // Seed the database with initial data
 // using (var scope = app.Services.CreateScope())
 // {
 //     var services = scope.ServiceProvider;
 //     var context = services.GetRequiredService<ApplicationDbContext>();
+
+//     // drop existing database
+//     context.Database.EnsureDeleted();
+
+//     // create new database
+//     context.Database.EnsureCreated();
+
+//     // apply any pending migration
+//     // context.Database.Migrate();
+
 //     var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
 //     var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
-
 //     await DbInitialiser.Initialise(context, userManager, roleManager);
 // }

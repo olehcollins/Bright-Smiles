@@ -473,3 +473,7 @@
 /Users/olehcollins/Documents - oleh’s Laptop/Programming/Bright-Smiles/DentistAppointmentSystem/obj/Debug/net8.0/DentistAppointmentSystem.pdb
 /Users/olehcollins/Documents - oleh’s Laptop/Programming/Bright-Smiles/DentistAppointmentSystem/obj/Debug/net8.0/DentistAppointmentSystem.genruntimeconfig.cache
 /Users/olehcollins/Documents - oleh’s Laptop/Programming/Bright-Smiles/DentistAppointmentSystem/obj/Debug/net8.0/ref/DentistAppointmentSystem.dll
+/Users/olehcollins/Documents - oleh’s Laptop/Programming/Bright-Smiles/DentistAppointmentSystem/bin/Debug/net8.0/Microsoft.AspNetCore.Authorization.dll
+/Users/olehcollins/Documents - oleh’s Laptop/Programming/Bright-Smiles/DentistAppointmentSystem/bin/Debug/net8.0/Microsoft.AspNetCore.Metadata.dll
+/Users/olehcollins/Documents - oleh’s Laptop/Programming/Bright-Smiles/DentistAppointmentSystem/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/Users/olehcollins/Documents - oleh’s Laptop/Programming/Bright-Smiles/DentistAppointmentSystem/bin/Debug/net8.0/Microsoft.Extensions.Logging.Abstractions.dll
