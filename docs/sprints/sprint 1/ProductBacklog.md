@@ -20,7 +20,7 @@
     dotnet add package Microsoft.AspNetCore.Http.Features
   ```
   2. Create the Database Context.
-  3. Create a User Model
+  3. Create a User Model.
   4. Configure the Database Connection.
   5. Configure Services and Middleware in Program.cs.
   6. Populate the database.
@@ -53,7 +53,7 @@
   ```bash
     dotnet new xunit -n DentistAppointmentSystem.Tests
   ```
-  3. Navigate into the newly created test project folder and install the necessary NuGet Packages
+  3. Navigate into the newly created test project folder and install the necessary NuGet Packages.
   ```bash
     dotnet add package xunit
     dotnet add package Moq
@@ -64,7 +64,6 @@
   ```bash
     dotnet add reference ../DentistAppointmentSystem/DentistAppointmentSystem.csproj
   ```
-  4. Create a Controller Folder and within it create an AccountControllerTests.cs file
-  5. Code write the unit test for the Account Controller Actions
-
-3. **Deploy the Application.**
+  4. Create a Controller Folder and within it create an AccountControllerTests.cs file.
+  5. Code write the unit test for the Account Controller Actions.
+  6. Run the tests and if all are successful move to sprint 2.
