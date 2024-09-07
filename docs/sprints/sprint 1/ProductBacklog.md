@@ -1,4 +1,4 @@
-# Sprint 1 Planning
+# Sprint 1
 
 ## User Story 1:
 
@@ -28,16 +28,20 @@
 2. **Implement an authentication system for the platform.**
 
 - **Tasks:**
+
   1. Create a Data Folder and in create an initailiser file to populate the DB and context file for dependecy injection.
   2. Set up a DB context using Microsoft Entity Framework Core for users.
   3. Create the Migration file and then apply the migration to the database.
+
   ```bash
     dotnet ef migrations add InitialCreate
     dotnet ef database update
   ```
+
   4. Populate the database with 4 dentists, 2 receptionists, and a practice manager.
   5. Set the accessibility restrictions for the users depending on their roles.
   6. Create a ViewModels Folder and in it create models for the Login and Register views.
+
   ```
 
   ```
