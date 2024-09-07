@@ -4,6 +4,8 @@
 
 This is a .NET MVC web application for managing appointments in a dental practice. The system allows patients, doctors, receptionists, and administrators to perform different actions related to appointments and user management.
 
+<a href="https://olehcollins.github.io/Bright-Smiles/">WireFrame</a>
+
 ## Table of Contents
 
 - [Features](#features)
