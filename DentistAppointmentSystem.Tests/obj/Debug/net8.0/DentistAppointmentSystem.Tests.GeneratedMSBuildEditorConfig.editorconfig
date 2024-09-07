@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = DentistAppointmentSystem.Tests
-build_property.ProjectDir = /Users/olehcollins/Documents - oleh’s Laptop/Programming/Bright-Smiles/DentistAppointmentSystem.Tests/
+build_property.ProjectDir = /Users/olehcollins/Documents - oleh’s Laptop/Programming/BackUp/Bright-Smiles/DentistAppointmentSystem.Tests/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

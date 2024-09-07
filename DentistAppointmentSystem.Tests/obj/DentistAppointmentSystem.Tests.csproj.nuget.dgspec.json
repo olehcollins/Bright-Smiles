@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/olehcollins/Documents - oleh’s Laptop/Programming/Bright-Smiles/DentistAppointmentSystem.Tests/DentistAppointmentSystem.Tests.csproj": {}
+    "/Users/olehcollins/Documents - oleh’s Laptop/Programming/BackUp/Bright-Smiles/DentistAppointmentSystem.Tests/DentistAppointmentSystem.Tests.csproj": {}
   },
   "projects": {
-    "/Users/olehcollins/Documents - oleh’s Laptop/Programming/Bright-Smiles/DentistAppointmentSystem.Tests/DentistAppointmentSystem.Tests.csproj": {
+    "/Users/olehcollins/Documents - oleh’s Laptop/Programming/BackUp/Bright-Smiles/DentistAppointmentSystem.Tests/DentistAppointmentSystem.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/olehcollins/Documents - oleh’s Laptop/Programming/Bright-Smiles/DentistAppointmentSystem.Tests/DentistAppointmentSystem.Tests.csproj",
+        "projectUniqueName": "/Users/olehcollins/Documents - oleh’s Laptop/Programming/BackUp/Bright-Smiles/DentistAppointmentSystem.Tests/DentistAppointmentSystem.Tests.csproj",
         "projectName": "DentistAppointmentSystem.Tests",
-        "projectPath": "/Users/olehcollins/Documents - oleh’s Laptop/Programming/Bright-Smiles/DentistAppointmentSystem.Tests/DentistAppointmentSystem.Tests.csproj",
+        "projectPath": "/Users/olehcollins/Documents - oleh’s Laptop/Programming/BackUp/Bright-Smiles/DentistAppointmentSystem.Tests/DentistAppointmentSystem.Tests.csproj",
         "packagesPath": "/Users/olehcollins/.nuget/packages/",
-        "outputPath": "/Users/olehcollins/Documents - oleh’s Laptop/Programming/Bright-Smiles/DentistAppointmentSystem.Tests/obj/",
+        "outputPath": "/Users/olehcollins/Documents - oleh’s Laptop/Programming/BackUp/Bright-Smiles/DentistAppointmentSystem.Tests/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/olehcollins/.nuget/NuGet/NuGet.Config"
@@ -26,8 +26,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/olehcollins/Documents - oleh’s Laptop/Programming/Bright-Smiles/DentistAppointmentSystem/DentistAppointmentSystem.csproj": {
-                "projectPath": "/Users/olehcollins/Documents - oleh’s Laptop/Programming/Bright-Smiles/DentistAppointmentSystem/DentistAppointmentSystem.csproj"
+              "/Users/olehcollins/Documents - oleh’s Laptop/Programming/BackUp/Bright-Smiles/DentistAppointmentSystem/DentistAppointmentSystem.csproj": {
+                "projectPath": "/Users/olehcollins/Documents - oleh’s Laptop/Programming/BackUp/Bright-Smiles/DentistAppointmentSystem/DentistAppointmentSystem.csproj"
               }
             }
           }
@@ -100,14 +100,14 @@
         }
       }
     },
-    "/Users/olehcollins/Documents - oleh’s Laptop/Programming/Bright-Smiles/DentistAppointmentSystem/DentistAppointmentSystem.csproj": {
+    "/Users/olehcollins/Documents - oleh’s Laptop/Programming/BackUp/Bright-Smiles/DentistAppointmentSystem/DentistAppointmentSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/olehcollins/Documents - oleh’s Laptop/Programming/Bright-Smiles/DentistAppointmentSystem/DentistAppointmentSystem.csproj",
+        "projectUniqueName": "/Users/olehcollins/Documents - oleh’s Laptop/Programming/BackUp/Bright-Smiles/DentistAppointmentSystem/DentistAppointmentSystem.csproj",
         "projectName": "DentistAppointmentSystem",
-        "projectPath": "/Users/olehcollins/Documents - oleh’s Laptop/Programming/Bright-Smiles/DentistAppointmentSystem/DentistAppointmentSystem.csproj",
+        "projectPath": "/Users/olehcollins/Documents - oleh’s Laptop/Programming/BackUp/Bright-Smiles/DentistAppointmentSystem/DentistAppointmentSystem.csproj",
         "packagesPath": "/Users/olehcollins/.nuget/packages/",
-        "outputPath": "/Users/olehcollins/Documents - oleh’s Laptop/Programming/Bright-Smiles/DentistAppointmentSystem/obj/",
+        "outputPath": "/Users/olehcollins/Documents - oleh’s Laptop/Programming/BackUp/Bright-Smiles/DentistAppointmentSystem/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/olehcollins/.nuget/NuGet/NuGet.Config"
@@ -139,6 +139,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authorization": {
+              "target": "Package",
+              "version": "[8.0.8, )"
+            },
             "Microsoft.AspNetCore.Http.Features": {
               "target": "Package",
               "version": "[5.0.17, )"

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/olehcollins/Documents - oleh’s Laptop/Programming/Bright-Smiles/DentistAppointmentSystem/DentistAppointmentSystem.csproj": {}
+    "/Users/olehcollins/Documents - oleh’s Laptop/Programming/BackUp/Bright-Smiles/DentistAppointmentSystem/DentistAppointmentSystem.csproj": {}
   },
   "projects": {
-    "/Users/olehcollins/Documents - oleh’s Laptop/Programming/Bright-Smiles/DentistAppointmentSystem/DentistAppointmentSystem.csproj": {
+    "/Users/olehcollins/Documents - oleh’s Laptop/Programming/BackUp/Bright-Smiles/DentistAppointmentSystem/DentistAppointmentSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/olehcollins/Documents - oleh’s Laptop/Programming/Bright-Smiles/DentistAppointmentSystem/DentistAppointmentSystem.csproj",
+        "projectUniqueName": "/Users/olehcollins/Documents - oleh’s Laptop/Programming/BackUp/Bright-Smiles/DentistAppointmentSystem/DentistAppointmentSystem.csproj",
         "projectName": "DentistAppointmentSystem",
-        "projectPath": "/Users/olehcollins/Documents - oleh’s Laptop/Programming/Bright-Smiles/DentistAppointmentSystem/DentistAppointmentSystem.csproj",
+        "projectPath": "/Users/olehcollins/Documents - oleh’s Laptop/Programming/BackUp/Bright-Smiles/DentistAppointmentSystem/DentistAppointmentSystem.csproj",
         "packagesPath": "/Users/olehcollins/.nuget/packages/",
-        "outputPath": "/Users/olehcollins/Documents - oleh’s Laptop/Programming/Bright-Smiles/DentistAppointmentSystem/obj/",
+        "outputPath": "/Users/olehcollins/Documents - oleh’s Laptop/Programming/BackUp/Bright-Smiles/DentistAppointmentSystem/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/olehcollins/.nuget/NuGet/NuGet.Config"
