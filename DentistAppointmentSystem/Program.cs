@@ -19,7 +19,7 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
     options.SignIn.RequireConfirmedAccount = true;
     options.Password.RequireDigit = true;
     options.Password.RequireLowercase = true;
-    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireNonAlphanumeric = true;
     options.Password.RequireUppercase = true;
     options.Password.RequiredLength = 6;
 })
@@ -61,13 +61,22 @@ app.MapRazorPages();
 app.Run();
 
 
-// Seed the database with initial data
+// // Seed the database with initial data
 // using (var scope = app.Services.CreateScope())
 // {
 //     var services = scope.ServiceProvider;
 //     var context = services.GetRequiredService<ApplicationDbContext>();
+
+//     // drop existing database
+//     context.Database.EnsureDeleted();
+
+//     // create new database
+//     context.Database.EnsureCreated();
+
+//     // apply any pending migration
+//     // context.Database.Migrate();
+
 //     var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
 //     var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
-
 //     await DbInitialiser.Initialise(context, userManager, roleManager);
 // }

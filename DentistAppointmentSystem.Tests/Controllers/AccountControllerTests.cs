@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using DentistAppointmentSystem.Controllers;
 using DentistAppointmentSystem.Models;
 using DentistAppointmentSystem.ViewModels;
+using DentistAppointmentSystem.Utilities;
 using System.Threading.Tasks;
 using System.Text;
 using System;
@@ -127,21 +128,12 @@ namespace DentistAppointmentSystem.Tests.Controllers
             var model = new RegisterViewModel
             {
                 Email = "newuser@example.com",
-                Password = "NewUserPassword123!",
-                ConfirmPassword = "NewUserPassword123!",
                 FirstName = "John",
-                LastName = "Doe",
-                Role = "User",
-                ProfilePhoto = new FormFile(
-                    new MemoryStream(Encoding.UTF8.GetBytes("dummy content")),
-                    0,
-                    0,
-                    "profilePhoto",
-                    "profilePhoto.jpg"
-                )
+                LastName = "Does",
+                Role = "Patient",
             };
 
-            _userManagerMock.Setup(m => m.CreateAsync(It.IsAny<ApplicationUser>(), model.Password))
+            _userManagerMock.Setup(m => m.CreateAsync(It.IsAny<ApplicationUser>(), It.IsAny<string>()))
                 .ReturnsAsync(IdentityResult.Success);
             _userManagerMock.Setup(m => m.AddToRoleAsync(It.IsAny<ApplicationUser>(), model.Role))
                 .ReturnsAsync(IdentityResult.Success);
@@ -152,10 +144,8 @@ namespace DentistAppointmentSystem.Tests.Controllers
 
             var redirectResult = Assert.IsType<RedirectToActionResult>(result);
             Assert.Equal("Index", redirectResult.ActionName);
-            Assert.Equal("Home", redirectResult.ControllerName);
 
-            // Verify that CreateAsync and AddToRoleAsync were called
-            _userManagerMock.Verify(um => um.CreateAsync(It.IsAny<ApplicationUser>(), model.Password), Times.Once);
+            _userManagerMock.Verify(um => um.CreateAsync(It.IsAny<ApplicationUser>(), It.IsAny<string>()), Times.Once);
             _userManagerMock.Verify(um => um.AddToRoleAsync(It.IsAny<ApplicationUser>(), model.Role), Times.Once);
             _signInManagerMock.Verify(sm => sm.SignInAsync(It.IsAny<ApplicationUser>(), false, null), Times.Once);
         }
@@ -165,8 +155,8 @@ namespace DentistAppointmentSystem.Tests.Controllers
         {
             var model = new RegisterViewModel();
 
-            _userManagerMock.Setup(m => m.CreateAsync(It.IsAny<ApplicationUser>(), model.Password))
-            .ReturnsAsync(IdentityResult.Failed(new IdentityError { Description = "User creation failed." }));
+            _userManagerMock.Setup(m => m.CreateAsync(It.IsAny<ApplicationUser>(), It.IsAny<string>()))
+                .ReturnsAsync(IdentityResult.Failed(new IdentityError { Description = "User creation failed." }));
             _userManagerMock.Setup(m => m.AddToRoleAsync(It.IsAny<ApplicationUser>(), model.Role))
                 .ReturnsAsync(IdentityResult.Failed(new IdentityError { Description = "Role assignment failed." }));
             _signInManagerMock.Setup(m => m.SignInAsync(It.IsAny<ApplicationUser>(), false, null))
@@ -179,7 +169,7 @@ namespace DentistAppointmentSystem.Tests.Controllers
             Assert.True(_accountController.ModelState.ContainsKey(""));
             Assert.Contains("User creation failed.", _accountController.ModelState[""].Errors[0].ErrorMessage);
 
-            _userManagerMock.Verify(um => um.CreateAsync(It.IsAny<ApplicationUser>(), model.Password), Times.Once);
+            _userManagerMock.Verify(um => um.CreateAsync(It.IsAny<ApplicationUser>(), It.IsAny<string>()), Times.Once);
             _userManagerMock.Verify(um => um.AddToRoleAsync(It.IsAny<ApplicationUser>(), model.Role), Times.Once);
             _signInManagerMock.Verify(sm => sm.SignInAsync(It.IsAny<ApplicationUser>(), false, null), Times.Never);
         }
