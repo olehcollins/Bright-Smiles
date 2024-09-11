@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/d5m/lYteSeSOB5rbr0T2jqnU4h46XPwl+UlPR1PTtU=",
+  "Hash": "ZqgnZZTj2aNSEhpoTpYHHp8omEvO4WekPn7QJllCY0U=",
   "Source": "DentistAppointmentSystem",
   "BasePath": "_content/DentistAppointmentSystem",
   "Mode": "Default",
@@ -2352,6 +2352,44 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/lib/jquery/LICENSE.txt"
+    },
+    {
+      "Identity": "/Users/olehcollins/Documents - oleh’s Laptop/Programming/BackUp/Bright-Smiles/DentistAppointmentSystem/wwwroot/uploads/9cee0f85-5f05-49a7-b6cf-042d24641df6_7807.jpg",
+      "SourceId": "DentistAppointmentSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/olehcollins/Documents - oleh’s Laptop/Programming/BackUp/Bright-Smiles/DentistAppointmentSystem/wwwroot/",
+      "BasePath": "_content/DentistAppointmentSystem",
+      "RelativePath": "uploads/9cee0f85-5f05-49a7-b6cf-042d24641df6_7807.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/9cee0f85-5f05-49a7-b6cf-042d24641df6_7807.jpg"
+    },
+    {
+      "Identity": "/Users/olehcollins/Documents - oleh’s Laptop/Programming/BackUp/Bright-Smiles/DentistAppointmentSystem/wwwroot/uploads/profile-pic1.jpg",
+      "SourceId": "DentistAppointmentSystem",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/olehcollins/Documents - oleh’s Laptop/Programming/BackUp/Bright-Smiles/DentistAppointmentSystem/wwwroot/",
+      "BasePath": "_content/DentistAppointmentSystem",
+      "RelativePath": "uploads/profile-pic1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/profile-pic1.jpg"
     }
   ]
 }

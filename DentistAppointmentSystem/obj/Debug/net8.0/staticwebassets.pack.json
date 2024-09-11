@@ -249,6 +249,14 @@
       "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.map"
     },
     {
+      "Id": "/Users/olehcollins/Documents - oleh’s Laptop/Programming/BackUp/Bright-Smiles/DentistAppointmentSystem/wwwroot/uploads/9cee0f85-5f05-49a7-b6cf-042d24641df6_7807.jpg",
+      "PackagePath": "staticwebassets/uploads/9cee0f85-5f05-49a7-b6cf-042d24641df6_7807.jpg"
+    },
+    {
+      "Id": "/Users/olehcollins/Documents - oleh’s Laptop/Programming/BackUp/Bright-Smiles/DentistAppointmentSystem/wwwroot/uploads/profile-pic1.jpg",
+      "PackagePath": "staticwebassets/uploads/profile-pic1.jpg"
+    },
+    {
       "Id": "obj/Debug/net8.0/staticwebassets/msbuild.DentistAppointmentSystem.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

@@ -1,0 +1,73 @@
+@model DentistAppointmentSystem.ViewModels.UserViewModel
+
+@{
+    ViewData["Title"] = "Edit User Details";
+}
+
+<h2>Edit User Details</h2>
+
+<form asp-action="Update" method="post" enctype="multipart/form-data" class="col-6">
+    <input type="hidden" asp-for="User.Id" />
+    <div class="form-group">
+        <label asp-for="User.FirstName"></label>
+        <input asp-for="User.FirstName" class="form-control" />
+        <span asp-validation-for="User.FirstName" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="User.LastName"></label>
+        <input asp-for="User.LastName" class="form-control" />
+        <span asp-validation-for="User.LastName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="User.Email"></label>
+        <input asp-for="User.Email" class="form-control" readonly />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="User.DateOfBirth"></label>
+        <input asp-for="User.DateOfBirth" class="form-control" type="date" />
+        <span asp-validation-for="User.DateOfBirth" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="User.Address"></label>
+        <input asp-for="User.Address" class="form-control" />
+        <span asp-validation-for="User.Address" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="User.Gender"></label>
+        <select asp-for="User.Gender" class="form-control">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select>
+        <span asp-validation-for="User.Gender" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="User.EmmergencyContact"></label>
+        <input asp-for="User.EmmergencyContact" class="form-control" />
+        <span asp-validation-for="User.EmmergencyContact" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Role" class="form-label"></label>
+        <select asp-for="Role" class="form-control" readonly>
+            <option value="Admin">Admin</option>
+            <option value="Dentist">Dentist</option>
+            <option value="Receptionist">Receptionist</option>
+            <option value="Patients">Patient</option>
+        </select>
+        <span asp-validation-for="Role" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="my-4 btn btn-primary">Save Changes</button>
+    <a asp-controller="User" asp-action="Profile" asp-route-id="@Model.User.Id" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
