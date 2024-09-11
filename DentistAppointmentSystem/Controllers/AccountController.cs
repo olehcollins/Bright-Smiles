@@ -73,7 +73,7 @@ namespace DentistAppointmentSystem.Controllers
         }
 
         // GET: /Account/Logout
-        [HttpPost]
+        [HttpGet]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()
         {
