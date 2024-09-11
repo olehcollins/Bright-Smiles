@@ -18,8 +18,9 @@ namespace DentistAppointmentSystem.Models
         // Foreign Key for ScheduledBy
         [ForeignKey("ScheduledById")]
         public ApplicationUser? ScheduledBy { get; set; } // Navigation property
-
-        public DateTime AppointmentDate { get; set; } = DateTime.Now;
+        public string Description { get; set; }
+        public string TypeOfAppointment { get; set; }
+        public DateTime AppointmentDate { get; set; } = DateTime.UtcNow;
 
         // Foreign Key fields
         public string PatientId { get; set; } = string.Empty; // Foreign key field

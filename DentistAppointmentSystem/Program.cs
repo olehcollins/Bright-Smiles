@@ -58,9 +58,6 @@ app.MapControllerRoute(
 
 app.MapRazorPages();
 
-app.Run();
-
-
 // // Seed the database with initial data
 // using (var scope = app.Services.CreateScope())
 // {
@@ -80,3 +77,5 @@ app.Run();
 //     var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
 //     await DbInitialiser.Initialise(context, userManager, roleManager);
 // }
+app.Run();
+

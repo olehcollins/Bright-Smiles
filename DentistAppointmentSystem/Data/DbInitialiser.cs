@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using DentistAppointmentSystem.Models;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -16,10 +17,10 @@ namespace DentistAppointmentSystem.Data
             // Check if roles already exist, if not, create them.
             if (!context.Roles.Any())
             {
-                roleManager.CreateAsync(new IdentityRole { Name = "Admin", NormalizedName = "ADMIN" }).Wait();
-                roleManager.CreateAsync(new IdentityRole { Name = "Dentist", NormalizedName = "DENTIST" }).Wait();
-                roleManager.CreateAsync(new IdentityRole { Name = "Receptionist", NormalizedName = "RECEPTIONIST" }).Wait();
-                roleManager.CreateAsync(new IdentityRole { Name = "Patient", NormalizedName = "PATIENT" }).Wait();
+                await roleManager.CreateAsync(new IdentityRole { Name = "Admin", NormalizedName = "ADMIN" });
+                await roleManager.CreateAsync(new IdentityRole { Name = "Dentist", NormalizedName = "DENTIST" });
+                await roleManager.CreateAsync(new IdentityRole { Name = "Receptionist", NormalizedName = "RECEPTIONIST" });
+                await roleManager.CreateAsync(new IdentityRole { Name = "Patient", NormalizedName = "PATIENT" });
             }
 
             // Check if users already exist, if not, create Admin.
@@ -32,96 +33,144 @@ namespace DentistAppointmentSystem.Data
                     Email = "admin@admin.com",
                     FirstName = "Admin",
                     LastName = "User",
+                    DateOfBirth = DateTime.SpecifyKind(new DateTime(1980, 1, 1), DateTimeKind.Utc),
+                    Address = "123 Admin St, Admin City, Adminland",
+                    Gender = "Male",
+                    EmmergencyContact = "0123456789",
                     EmailConfirmed = true
                 };
 
-                userManager.CreateAsync(adminUser, "AdminPassword123!").Wait();
-                userManager.AddToRoleAsync(adminUser, "Admin").Wait();
+                await userManager.CreateAsync(adminUser, "AdminPassword123!");
+                await userManager.AddToRoleAsync(adminUser, "Admin");
                 Console.WriteLine("Admin Created");
 
-                // Create 4 Dentists with realistic names
-                var dentists = new List<(string FirstName, string LastName)>
+                // Create Dentists with realistic names
+                var dentists = new List<ApplicationUser>
                 {
-                    ("James", "Anderson"),
-                    ("Sarah", "Roberts"),
-                    ("Michael", "Johnson"),
-                    ("Laura", "Smith")
+                    new ApplicationUser
+                    {
+                        UserName = "james.a15",
+                        Email = "james.anderson@brightsmile.com",
+                        FirstName = "James",
+                        LastName = "Anderson",
+                        DateOfBirth = DateTime.SpecifyKind(new DateTime(1975, 5, 10), DateTimeKind.Utc),
+                        Address = "101 Dental Way, Tooth City",
+                        Gender = "Male",
+                        EmmergencyContact = "0123456789",
+                        EmailConfirmed = true
+                    },
+                    new ApplicationUser
+                    {
+                        UserName = "sarah.r20",
+                        Email = "sarah.roberts@brightsmile.com",
+                        FirstName = "Sarah",
+                        LastName = "Roberts",
+                        DateOfBirth = DateTime.SpecifyKind(new DateTime(1982, 3, 22), DateTimeKind.Utc),
+                        Address = "202 Smile Ave, Dental Town",
+                        Gender = "Female",
+                        EmmergencyContact = "0123456789",
+                        EmailConfirmed = true
+                    },
+                    // Add more dentists similarly...
                 };
 
                 foreach (var dentist in dentists)
                 {
-                    var dentistUser = new ApplicationUser
-                    {
-                        UserName = $"{dentist.FirstName.ToLower()}.{dentist.LastName.ToLower()}@brightsmile.com",
-                        Email = $"{dentist.FirstName.ToLower()}.{dentist.LastName.ToLower()}@brightsmile.com",
-                        FirstName = dentist.FirstName,
-                        LastName = dentist.LastName,
-                        EmailConfirmed = true
-                    };
-
-                    userManager.CreateAsync(dentistUser, $"DentistPassword{dentists.IndexOf(dentist) + 1}123!").Wait();
-                    userManager.AddToRoleAsync(dentistUser, "Dentist").Wait();
+                    await userManager.CreateAsync(dentist, $"DentistPassword{dentists.IndexOf(dentist) + 1}123!");
+                    await userManager.AddToRoleAsync(dentist, "Dentist");
                     Console.WriteLine($"{dentist.FirstName} {dentist.LastName} (Dentist) Created");
                 }
 
-                // Create 1 Receptionist with a realistic name
+                // Create a Receptionist
                 var receptionistUser = new ApplicationUser
                 {
-                    UserName = "emily.brown@brightsmile.com",
+                    UserName = "emily.b15",
                     Email = "emily.brown@brightsmile.com",
                     FirstName = "Emily",
                     LastName = "Brown",
+                    DateOfBirth = DateTime.SpecifyKind(new DateTime(1990, 7, 14), DateTimeKind.Utc),
+                    Address = "303 Reception Blvd, Office City",
+                    Gender = "Female",
+                    EmmergencyContact = "0123456789",
                     EmailConfirmed = true
                 };
 
-                userManager.CreateAsync(receptionistUser, "ReceptionistPassword123!").Wait();
-                userManager.AddToRoleAsync(receptionistUser, "Receptionist").Wait();
+                await userManager.CreateAsync(receptionistUser, "ReceptionistPassword123!");
+                await userManager.AddToRoleAsync(receptionistUser, "Receptionist");
                 Console.WriteLine("Emily Brown (Receptionist) Created");
 
-                // Create 15 Patients with realistic names
-                var patients = new List<(string FirstName, string LastName)>
+                // Create Patients with realistic names
+                var patients = new List<ApplicationUser>
                 {
-                    ("Olivia", "Williams"),
-                    ("Liam", "Jones"),
-                    ("Emma", "Davis"),
-                    ("Noah", "Garcia"),
-                    ("Ava", "Martinez"),
-                    ("Sophia", "Hernandez"),
-                    ("Isabella", "Lopez"),
-                    ("Mason", "Gonzalez"),
-                    ("Mia", "Wilson"),
-                    ("Ethan", "Moore"),
-                    ("Lucas", "Taylor"),
-                    ("Amelia", "Anderson"),
-                    ("Benjamin", "Thomas"),
-                    ("Harper", "Jackson"),
-                    ("Charlotte", "White")
+                    new ApplicationUser
+                    {
+                        UserName = "olivia.w23",
+                        Email = "olivia.williams@brightsmile.com",
+                        FirstName = "Olivia",
+                        LastName = "Williams",
+                        DateOfBirth = DateTime.SpecifyKind(new DateTime(1995, 11, 5), DateTimeKind.Utc),
+                        Address = "404 Patient Lane, Health City",
+                        Gender = "Female",
+                        EmmergencyContact = "0123456789",
+                        EmailConfirmed = true
+                    },
+                    new ApplicationUser
+                    {
+                        UserName = "liam.j18",
+                        Email = "liam.jones@brightsmile.com",
+                        FirstName = "Liam",
+                        LastName = "Jones",
+                        DateOfBirth = DateTime.SpecifyKind(new DateTime(1998, 8, 18), DateTimeKind.Utc),
+                        Address = "505 Patient Rd, Health City",
+                        Gender = "Male",
+                        EmmergencyContact = "0123456789",
+                        EmailConfirmed = true
+                    },
+                    // Add more patients similarly...
                 };
 
                 foreach (var patient in patients)
                 {
-                    var patientUser = new ApplicationUser
-                    {
-                        UserName = $"{patient.FirstName.ToLower()}.{patient.LastName.ToLower()}@brightsmile.com",
-                        Email = $"{patient.FirstName.ToLower()}.{patient.LastName.ToLower()}@brightsmile.com",
-                        FirstName = patient.FirstName,
-                        LastName = patient.LastName,
-                        EmailConfirmed = true
-                    };
-
-                    userManager.CreateAsync(patientUser, $"PatientPassword{patients.IndexOf(patient) + 1}123!").Wait();
-                    userManager.AddToRoleAsync(patientUser, "Patient").Wait();
+                    await userManager.CreateAsync(patient, $"PatientPassword{patients.IndexOf(patient) + 1}123!");
+                    await userManager.AddToRoleAsync(patient, "Patient");
                     Console.WriteLine($"{patient.FirstName} {patient.LastName} (Patient) Created");
                 }
 
-                Console.WriteLine("Users initialized successfully!");
+                Console.WriteLine("Users initialised successfully!");
+
+                // Seed Appointments
+                var appointments = new List<Appointment>
+                {
+                    new Appointment
+                    {
+                        PatientId = patients[0].Id,
+                        DentistId = dentists[0].Id,
+                        ScheduledById = receptionistUser.Id,
+                        Description = "Routine Dental Check-up",
+                        TypeOfAppointment = "Check-up",
+                        AppointmentDate = DateTime.SpecifyKind(DateTime.Now.AddDays(7), DateTimeKind.Utc)
+                    },
+                    new Appointment
+                    {
+                        PatientId = patients[1].Id,
+                        DentistId = dentists[1].Id,
+                        ScheduledById = receptionistUser.Id,
+                        Description = "Teeth Cleaning",
+                        TypeOfAppointment = "Cleaning",
+                        AppointmentDate = DateTime.SpecifyKind(DateTime.Now.AddDays(14), DateTimeKind.Utc)
+
+                    },
+                    // Add more appointments similarly...
+                };
+
+                context.Appointments.AddRange(appointments);
+                await context.SaveChangesAsync();
+                Console.WriteLine("Appointments initialised successfully!");
             }
             else
             {
-                Console.WriteLine("Users already exist. Initialization skipped.");
+                Console.WriteLine("Users already exist. Initialisation skipped.");
             }
-
-            await context.SaveChangesAsync();
         }
     }
 }
