@@ -1,3 +1,5 @@
 # Ignore build results
-/bin/
-/obj/
+/DentistAppointmentSystem/bin/
+/DentistAppointmentSystem/obj/
+/DentistAppointmentSystem.Tests/bin/
+/DentistAppointmentSystem.Tests/obj/
