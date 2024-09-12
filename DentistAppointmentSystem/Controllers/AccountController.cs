@@ -89,7 +89,7 @@ namespace DentistAppointmentSystem.Controllers
             return View();
         }
 
-        // UPDATE
+        // REGISTER
         [Authorize(Roles = "Admin,Receptionist")]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -101,11 +101,19 @@ namespace DentistAppointmentSystem.Controllers
                 var user = new ApplicationUser
                 {
                     UserName = UsernameGenerator.GenerateUsername(model.FirstName, model.LastName),
+                    // UserName = model.Email,
                     Email = model.Email,
                     FirstName = model.FirstName,
                     LastName = model.LastName,
+                    DateOfBirth = model.DateOfBirth,
+                    PhoneNumber = model.PhoneNumber,
+                    Address = model.Address,
+                    Gender = model.Gender,
+                    EmmergencyContact = model.EmmergencyContact,
+                    EmmergencyContactName = model.EmmergencyContactName,
                 };
 
+                // var result = await _userManager.CreateAsync(user, "Helloworld10!");
                 var result = await _userManager.CreateAsync(user, PasswordGenerator.GeneratePassword(model.FirstName, model.LastName));
                 var roleResult = await _userManager.AddToRoleAsync(user, model.Role);
 

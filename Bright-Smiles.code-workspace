@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../Althaus/CsharpFundamentals"
+		}
+	],
+	"settings": {
+		"dotnet-test-explorer.testProjectPath": "DentistAppointmentSystem.Tests"
+	}
+}
