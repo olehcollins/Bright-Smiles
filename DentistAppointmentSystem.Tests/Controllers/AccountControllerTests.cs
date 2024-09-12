@@ -13,12 +13,14 @@ using System.Text;
 using System;
 using System.IO;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace DentistAppointmentSystem.Tests.Controllers
 {
     public class AccountControllerTests
     {
         private readonly Mock<UserManager<ApplicationUser>> _userManagerMock;
+        private readonly Mock<RoleManager<IdentityRole>> _roleManagerMock;
         private readonly Mock<SignInManager<ApplicationUser>> _signInManagerMock;
         private readonly Mock<IWebHostEnvironment> _webHostEnvironmentMock;
         private readonly AccountController _accountController;
@@ -27,6 +29,7 @@ namespace DentistAppointmentSystem.Tests.Controllers
         {
             // Mock dependencies
             _userManagerMock = MockUserManager();
+            _roleManagerMock = MockRoleManager();
             _signInManagerMock = MockSignInManager();
             _webHostEnvironmentMock = new Mock<IWebHostEnvironment>();
             _webHostEnvironmentMock.Setup(m => m.WebRootPath).Returns(Path.GetTempPath());
@@ -35,8 +38,13 @@ namespace DentistAppointmentSystem.Tests.Controllers
             _accountController = new AccountController(
                 _userManagerMock.Object,
                 _signInManagerMock.Object,
-                _webHostEnvironmentMock.Object
+                _webHostEnvironmentMock.Object,
+                _roleManagerMock.Object
             );
+            // mocked 
+            var tempData = new Mock<ITempDataDictionary>();
+            _accountController.TempData = tempData.Object;
+
         }
 
         private Mock<UserManager<ApplicationUser>> MockUserManager()
@@ -57,7 +65,16 @@ namespace DentistAppointmentSystem.Tests.Controllers
             );
         }
 
-        [Fact]
+        private Mock<RoleManager<IdentityRole>> MockRoleManager()
+        {
+            return new Mock<RoleManager<IdentityRole>>(
+                Mock.Of<IRoleStore<IdentityRole>>(),
+                null, null, null, null
+            );
+        }
+
+        // Test for a Successful Login Action
+        [Fact] // Marks a method as a test method that takes no parameters. from Xunit
         public async Task Login_Post_ValidModel_RedirectsToHome()
         {
             // LoginViewModel with a specific email and password.
@@ -79,11 +96,12 @@ namespace DentistAppointmentSystem.Tests.Controllers
 
             // check that the result of the Login method is a RedirectToActionResult.
             var redirectResult = Assert.IsType<RedirectToActionResult>(result);
-            // verify that this result redirects to the “Index” action of the “Home” controller.
+            // verify that this result redirects to the “Index” action of the “Home” controller.from Xunit
             Assert.Equal("Index", redirectResult.ActionName);
             Assert.Equal("Home", redirectResult.ControllerName);
         }
 
+        // Test for a Failed Login Action
         [Fact]
         public async Task Login_Post_InvalidModel_ReturnsViewWithModel()
         {
@@ -110,6 +128,7 @@ namespace DentistAppointmentSystem.Tests.Controllers
             Assert.Equal(model, viewResult.Model);
         }
 
+        // Test for a Successful Logout Action
         [Fact]
         public async Task Logout_Post_User_RedirectsToHome()
         {
@@ -122,15 +141,22 @@ namespace DentistAppointmentSystem.Tests.Controllers
             _signInManagerMock.Verify(sm => sm.SignOutAsync(), Times.Once);
         }
 
+        // Test for a Successful Register Action
         [Fact]
         public async Task Register_ValidModel_WhenRegistrationIsSuccessful()
         {
             var model = new RegisterViewModel
             {
-                Email = "newuser@example.com",
                 FirstName = "John",
-                LastName = "Does",
+                LastName = "Lock",
+                Email = "newuser@example.com",
                 Role = "Patient",
+                DateOfBirth = DateTime.SpecifyKind(new DateTime(1980, 1, 1), DateTimeKind.Utc),
+                Address = "123 Admin St, Admin City, Adminland",
+                Gender = "Male",
+                PhoneNumber = "+44123456789",
+                EmmergencyContact = "0123456789",
+                EmmergencyContactName = "Johhan Geothe"
             };
 
             _userManagerMock.Setup(m => m.CreateAsync(It.IsAny<ApplicationUser>(), It.IsAny<string>()))
@@ -148,8 +174,11 @@ namespace DentistAppointmentSystem.Tests.Controllers
             _userManagerMock.Verify(um => um.CreateAsync(It.IsAny<ApplicationUser>(), It.IsAny<string>()), Times.Once);
             _userManagerMock.Verify(um => um.AddToRoleAsync(It.IsAny<ApplicationUser>(), model.Role), Times.Once);
             _signInManagerMock.Verify(sm => sm.SignInAsync(It.IsAny<ApplicationUser>(), false, null), Times.Once);
+
+            Assert.True(_accountController.ModelState.IsValid);
         }
 
+        // Test for a Failed Register Action
         [Fact]
         public async Task Register_InValidModel_WhenRegistrationFails()
         {
@@ -164,14 +193,15 @@ namespace DentistAppointmentSystem.Tests.Controllers
 
             var result = await _accountController.Register(model);
 
+            _userManagerMock.Verify(um => um.CreateAsync(It.IsAny<ApplicationUser>(), It.IsAny<string>()), Times.Once);
+            _userManagerMock.Verify(um => um.AddToRoleAsync(It.IsAny<ApplicationUser>(), model.Role), Times.Once);
+            _signInManagerMock.Verify(sm => sm.SignInAsync(It.IsAny<ApplicationUser>(), false, null), Times.Never);
+
             var viewResult = Assert.IsType<ViewResult>(result);
             Assert.Equal(model, viewResult.Model);
             Assert.True(_accountController.ModelState.ContainsKey(""));
             Assert.Contains("User creation failed.", _accountController.ModelState[""].Errors[0].ErrorMessage);
 
-            _userManagerMock.Verify(um => um.CreateAsync(It.IsAny<ApplicationUser>(), It.IsAny<string>()), Times.Once);
-            _userManagerMock.Verify(um => um.AddToRoleAsync(It.IsAny<ApplicationUser>(), model.Role), Times.Once);
-            _signInManagerMock.Verify(sm => sm.SignInAsync(It.IsAny<ApplicationUser>(), false, null), Times.Never);
         }
     }
 }
