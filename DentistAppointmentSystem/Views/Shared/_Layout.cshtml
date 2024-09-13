@@ -77,7 +77,7 @@
                             else
                             {
                                 <a asp-controller="User" asp-action="Profile" asp-route-id="@userId">
-                                    <img src="https://img.freepik.com/free-vector/mans-flat-style-face_90220-2938.jpg?t=st=1725278922~exp=1725282522~hmac=4f0da0f46b0e9f77f60f8373b4b1709c3d1f5a213b8474b72407118952cfec37&w=1380" alt="Default Profile Photo" class="img-thumbnail" />
+                                    <img src="https://img.freepik.com/free-vector/mans-flat-style-face_90220-2938.jpg?t=st=1725278922~exp=1725282522~hmac=4f0da0f46b0e9f77f60f8373b4b1709c3d1f5a213b8474b72407118952cfec37&w=1380" alt="Default Profile Photo" class="img-fluid rounded-circle" style="width: 70px; height: 70px;" />
                                 </a>
                             }
                             
@@ -108,9 +108,10 @@
     <script type="text/javascript">
         $(document).ready(function () {
             var message = '@TempData["Message"]';
-            if (message) {
-                toastr.success(message);  // Show success notification
-            }
+            var failureMessage = '@TempData["Failure"]';
+
+            if (message) toastr.success(message);  // Show success notification
+            if (failureMessage) toastr.danger(message);
         });
     </script>
     @await RenderSectionAsync("Scripts", required: false)

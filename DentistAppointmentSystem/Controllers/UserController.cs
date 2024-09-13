@@ -21,46 +21,37 @@ namespace DentistAppointmentSystem.Controllers
 
         public IActionResult Index()
         {
-
             return View();
             // return RedirectToAction("Index", "NotFound");
         }
-        [Authorize(Roles = "Dentist,Admin,Receptionist, Patient")]
+
+        // GET: User/Profile
+        [Authorize(Roles = "Dentist, Admin, Receptionist, Patient")]
         public async Task<IActionResult> Profile(string id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
+
             var user = await _userManager.FindByIdAsync(id);
             var role = (await _userManager.GetRolesAsync(user!)).FirstOrDefault();
+            var model = new UserViewModel { User = user!, Role = role! };
 
-            var model = new UserViewModel
-            {
-                User = user!,
-                Role = role!
-            };
             return View(model);
-
         }
 
+        // GET: User/Appointments
         [HttpGet]
-        [Authorize(Roles = "Dentist,Admin,Receptionist, Patient")]
+        [Authorize(Roles = "Dentist, Admin, Receptionist, Patient")]
         public async Task<IActionResult> Appointments(AppointmentsViewModel model)
         {
-            if (ModelState.IsValid)
-            {
-                if (User.IsInRole("Admin"))
-                {
-                    // var appointments = await 
-                }
-                // Check if the user is in one of the allowed roles
-                return View(model);
+            if (!ModelState.IsValid) return View(model);
 
+            if (User.IsInRole("Admin"))
+            {
+                // var appointments = await 
             }
-            return RedirectToAction("Error", "Home");
+            // Check if the user is in one of the allowed roles
+            return View(model);
         }
     }
-
 }
 

@@ -84,6 +84,7 @@ namespace DentistAppointmentSystem.Tests.Controllers
                 Password = "AdminPassword123!",
                 RememberMe = false
             };
+
             // set up the mock _signInManager to return SignInResult.Success when PasswordSignInAsync is called with the provided email, password, and remember-me flag.
             _signInManagerMock.Setup(sm => sm.PasswordSignInAsync(
                 model.Email,
@@ -91,6 +92,10 @@ namespace DentistAppointmentSystem.Tests.Controllers
                 model.RememberMe,
                 false
             )).ReturnsAsync(Microsoft.AspNetCore.Identity.SignInResult.Success);
+
+            var user = new ApplicationUser { Email = "admin@admin.com", FirstName = "Admin", LastName = "User" };
+
+            _userManagerMock.Setup(um => um.FindByEmailAsync(model.Email)).ReturnsAsync(user);
 
             var result = await _accountController.Login(model);
 
@@ -122,9 +127,9 @@ namespace DentistAppointmentSystem.Tests.Controllers
 
             // Act
             var result = await _accountController.Login(model);
-
             // Assert
             var viewResult = Assert.IsType<ViewResult>(result);
+
             Assert.Equal(model, viewResult.Model);
         }
 
@@ -167,8 +172,8 @@ namespace DentistAppointmentSystem.Tests.Controllers
                 .Returns(Task.CompletedTask);
 
             var result = await _accountController.Register(model);
-
             var redirectResult = Assert.IsType<RedirectToActionResult>(result);
+
             Assert.Equal("Index", redirectResult.ActionName);
 
             _userManagerMock.Verify(um => um.CreateAsync(It.IsAny<ApplicationUser>(), It.IsAny<string>()), Times.Once);
@@ -198,6 +203,7 @@ namespace DentistAppointmentSystem.Tests.Controllers
             _signInManagerMock.Verify(sm => sm.SignInAsync(It.IsAny<ApplicationUser>(), false, null), Times.Never);
 
             var viewResult = Assert.IsType<ViewResult>(result);
+
             Assert.Equal(model, viewResult.Model);
             Assert.True(_accountController.ModelState.ContainsKey(""));
             Assert.Contains("User creation failed.", _accountController.ModelState[""].Errors[0].ErrorMessage);
